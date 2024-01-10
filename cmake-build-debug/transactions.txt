@@ -1,0 +1,1 @@
+RO,deposit,10.00,Descriptionfor,12-10-2002

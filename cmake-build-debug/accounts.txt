@@ -1,0 +1,2 @@
+RO,Banking,1060.00
+EURO,asda[,763.00

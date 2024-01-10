@@ -74,10 +74,6 @@ void printTransactionsToFile(User user) {
 }
 
 void printAccountStatements(User user){
-    /**
- * @brief Prints account statements to a file named "statements.txt".
- * @param user The user whose account statements need to be printed.
- */
 
     FILE *file = fopen("statements.txt", "w");
 
@@ -89,7 +85,9 @@ void printAccountStatements(User user){
     fprintf(file,"User has:%d\n", user.numberOfAccounts);
     for(int i= 0 ; i< user.numberOfAccounts;i++)
         fprintf(file, "Account: %s, Account type:%s, Account balance:%.2lf\n", user.accountList[i].name,
-               user.accountList[i].type, user.accountList[i].balance);
+                user.accountList[i].type, user.accountList[i].balance);
+
+    fclose(file);
 }
 
 void financialReporting(User user) {

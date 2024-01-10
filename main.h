@@ -12,12 +12,13 @@
 #define MAXUSERS 20
 #define MAXACCOUTNS 10
 #define USERSFILE "users.txt"
-
+#define MAXCHARLENGTH 40
 
 typedef struct {
-    char type[20];  // deposit, withdrawal, transfer, payment, etc.
-    char date[20];
-    char parentAccount[20];
+    char type[MAXCHARLENGTH];  // deposit, withdrawal, transfer, payment, etc.
+    char date[MAXCHARLENGTH];
+    char parentAccount[MAXCHARLENGTH];
+    char destinationAccount[MAXCHARLENGTH];
     char description[100];
     double amount;
 } Transaction;
@@ -25,9 +26,9 @@ typedef struct {
 
 // Structure to represent a financial account
 typedef struct {
-    char type[50];
-    char name[50];
-    char owner[50];
+    char type[MAXCHARLENGTH];
+    char name[MAXCHARLENGTH];
+    char owner[MAXCHARLENGTH];
     Transaction transactionList[30];
     int transactionCount;
     double balance;
@@ -35,8 +36,8 @@ typedef struct {
 
 typedef struct {
 
-    char username[50];
-    char password[50];
+    char username[MAXCHARLENGTH];
+    char password[MAXCHARLENGTH];
     Account accountList[MAXACCOUTNS];
     int numberOfAccounts;
 

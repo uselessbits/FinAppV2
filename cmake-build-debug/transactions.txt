@@ -1,1 +1,1 @@
-RO,deposit,10.00,Descriptionfor,12-10-2002
+RO,transfer,50.00,transfer,10-10-2002

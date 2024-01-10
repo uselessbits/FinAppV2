@@ -1,0 +1,3 @@
+User has:2
+Account: EURO, Account type:banking, Account balance:150.00
+Account: RO, Account type:banking, Account balance:200.00

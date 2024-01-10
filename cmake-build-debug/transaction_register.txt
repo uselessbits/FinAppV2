@@ -1,8 +1,2 @@
 Transactions for Account: RO
 --------------------------------
-Type: deposit
-Date: 12-10-2002
-Parent Account: RO
-Description: Descriptionfor
-Amount: 10.00
---------------------------------

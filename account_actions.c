@@ -148,17 +148,10 @@ void loadAccounts(User *user)
     FILE *file = fopen("accounts.txt", "r");
     if (file!=NULL){
 
-        char balanceStr[30];
-        while(fscanf(file,"%[^,],%[^,],%s\n",user->accountList[user->numberOfAccounts].name,
-                     user->accountList[user->numberOfAccounts].type, balanceStr)!= EOF)
 
+        while(fscanf(file,"%[^,],%[^,],%lf\n",user->accountList[user->numberOfAccounts].name,
+                     user->accountList[user->numberOfAccounts].type, &(user->accountList[user->numberOfAccounts].balance))!= EOF)
 
-            user->accountList[user->numberOfAccounts].balance = strtod(balanceStr, NULL);
-        if(user->accountList[user->numberOfAccounts].balance)
-        {
-            printf("Transaction value must be greater than 0\n");
-            return;
-        }
 
             user->numberOfAccounts+=1;
 

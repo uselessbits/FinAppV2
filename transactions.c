@@ -41,13 +41,16 @@ int isValidDate(const char *dateStr) {
 
 int recordTransaction(Account *account, Transaction transaction) {
     // Check transaction type and update account balance accordingly
-    if (strcmp(transaction.type, "deposit") == 0 || strcmp(transaction.type, "transfer") == 0) {
+    if (strcmp(transaction.type, "deposit") == 0) {
         account->balance += transaction.amount;
-    } else if (strcmp(transaction.type, "withdrawal") == 0 || strcmp(transaction.type, "payment") == 0) {
+    } else if (strcmp(transaction.type, "transfer") == 0 || strcmp(transaction.type, "withdrawal") == 0 ||
+                                                            strcmp(transaction.type, "payment") == 0) {
         // Ensure sufficient balance before processing withdrawal or payment
         if (account->balance >= transaction.amount) {
             account->balance -= transaction.amount;
-        }
+
+        } else
+            printf("Insufficient Balance!\n");
     } else {
         // Invalid transaction type
         return -1;
@@ -92,6 +95,16 @@ void createTransaction(User *user) {
                     printf("Transaction value must be greater than 0\n");
                     return;
                 }
+                if(strcmp(transaction.type, "transfer") == 0)
+                {
+                    printf("Enter destination account: \n");
+                    scanf("%s", transaction.destinationAccount);
+                    for(int j=0;j<user->numberOfAccounts;j++)
+                        if(strcmp(user->accountList[j].name, transaction.destinationAccount)==0)
+                            user->accountList[j].balance+=transaction.amount;
+                }
+
+
 
                 printf("Enter transaction description: \n");
                 scanf("%s", transaction.description);

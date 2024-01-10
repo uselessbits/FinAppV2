@@ -22,7 +22,7 @@ int signUp(User user)
 
         FILE *file = fopen(USERSFILE, "w");
         if (file == NULL) {
-            printf("Error opening file for appending\n");
+            printf("Error opening file\n");
             return -1;
         }
         fprintf(file, "%s,%s\n", user.username, user.password);
